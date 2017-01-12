@@ -1,0 +1,22 @@
+﻿{
+  "tests": [
+    {
+      "expectedResultCount": 2,
+      "shouldPass": true,
+      "data": [
+        {
+          "id": "e26528c7-daa3-4bf5-83b8-ce9ae9098b62",
+          "count": 5,
+          "name": "Hello World",
+          "shouldPass": true
+        },
+        {
+          "id": "9f1a52c4-0b49-4075-a3fd-864fc037a7e6",
+          "count": 10,
+          "name": "Hello World 2",
+          "shouldPass": false
+        }
+      ]
+    }
+  ]
+}

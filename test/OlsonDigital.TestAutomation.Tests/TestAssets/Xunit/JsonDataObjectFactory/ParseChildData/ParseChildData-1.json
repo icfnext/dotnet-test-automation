@@ -1,0 +1,12 @@
+﻿{
+  "data": {
+    "id": "e26528c7-daa3-4bf5-83b8-ce9ae9098b62",
+    "count": 5,
+    "name": "Hello World",
+    "shouldPass": true,
+    "child": {
+      "count": 10,
+      "name": "Hello World 2"
+    }
+  }
+}
