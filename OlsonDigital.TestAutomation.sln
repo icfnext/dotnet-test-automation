@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlsonDigital.TestAutomation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlsonDigital.TestAutomation.Tests", "test\OlsonDigital.TestAutomation.Tests\OlsonDigital.TestAutomation.Tests.csproj", "{3A2860BA-83A4-470A-9A08-6B65093420FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlsonDigital.TestAutomation.Samples", "src\OlsonDigital.TestAutomation.Samples\OlsonDigital.TestAutomation.Samples.csproj", "{28CEF240-0E2B-46BA-962C-13B1F7BCBCC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3A2860BA-83A4-470A-9A08-6B65093420FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2860BA-83A4-470A-9A08-6B65093420FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2860BA-83A4-470A-9A08-6B65093420FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28CEF240-0E2B-46BA-962C-13B1F7BCBCC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CEF240-0E2B-46BA-962C-13B1F7BCBCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CEF240-0E2B-46BA-962C-13B1F7BCBCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CEF240-0E2B-46BA-962C-13B1F7BCBCC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
