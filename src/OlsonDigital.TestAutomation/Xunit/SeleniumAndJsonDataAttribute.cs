@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Autofac;
+using OlsonDigital.TestAutomation.IoC;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
 using Xunit.Sdk;
-
-using OlsonDigital.TestAutomation.Xunit;
 
 namespace OlsonDigital.TestAutomation.Xunit
 {
@@ -15,6 +15,7 @@ namespace OlsonDigital.TestAutomation.Xunit
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class SeleniumAndJsonDataAttribute : DataAttribute
     {
+        private IContainer _container = ContainerFactory.Container;
         private readonly TargetBrowser _targetBrowser;
         private readonly TestDataType _testDataType;
         private readonly string _jsonPath;
@@ -60,9 +61,9 @@ namespace OlsonDigital.TestAutomation.Xunit
         }
 
 
-        internal static IEnumerable<TargetBrowser> SplitValue(TargetBrowser value)
+        internal IEnumerable<TargetBrowser> SplitValue(TargetBrowser value)
         {
-            TestConfig testConfig = TestConfig.Instance;
+            TestConfig testConfig = _container.Resolve<TestConfig>();
 
             if (IsFlagOn<TargetBrowser>(testConfig.Browser, value, TargetBrowser.Chrome))
             {
