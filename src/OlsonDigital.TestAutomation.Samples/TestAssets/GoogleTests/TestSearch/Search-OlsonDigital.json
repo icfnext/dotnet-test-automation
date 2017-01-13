@@ -1,0 +1,15 @@
+﻿{
+  "tests": [
+    {
+      "name": "Test Search Title",
+      "shouldPass": true,
+      "data": {
+        "Url": "http://www.google.com",
+        "ExpectedSearchPageTitle": "Google",
+        "SearchText": "Olson Digital",
+        "SearchResultsPageTitle": "Olson Digital - Google Search"
+
+      }
+    }
+  ]
+}
