@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OlsonDigital.TestAutomation.Selenium
+﻿namespace OlsonDigital.TestAutomation.Selenium
 {
+    /// <summary>
+    /// A marker Interface for commands
+    /// </summary>
     public interface ICommand
     {
     }

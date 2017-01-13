@@ -143,6 +143,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\ContainerFactory.cs" />
     <Compile Include="IoC\Modules\CommandModule.cs" />
     <Compile Include="IoC\Modules\LocatorModule.cs" />
     <Compile Include="Selenium\ICommand.cs" />
@@ -161,7 +162,7 @@
     <Compile Include="Xunit\ReflectionDataObjectFactory.cs" />
     <Compile Include="Xunit\RemoteWebDriverConfig.cs" />
     <Compile Include="Xunit\SeleniumAndJsonDataAttribute.cs" />
-    <Compile Include="Xunit\SeleniumFacade.cs" />
+    <Compile Include="Xunit\WebDriverFactory.cs" />
     <Compile Include="Xunit\SeleniumFixture.cs" />
     <Compile Include="Xunit\TargetBrowser.cs" />
     <Compile Include="Xunit\TestConfig.cs" />

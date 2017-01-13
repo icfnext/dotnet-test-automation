@@ -1,35 +1,38 @@
 ﻿using System;
 
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace OlsonDigital.TestAutomation.Xunit
 {
+    /// <summary>
+    /// The current confgiuration for Tests
+    /// </summary>
     public class TestConfig
     {
-        private static Lazy<TestConfig> _singleton = new Lazy<TestConfig>(() =>
+        /// <summary>
+        /// Creates a new Test Config Object
+        /// </summary>
+        /// <param name="configRoot">A Configuration Root to read from.</param>
+        public TestConfig(IConfigurationRoot configRoot)
         {
-            var configBuilder = new ConfigurationBuilder();
+            _browser = (TargetBrowser)Enum.Parse(typeof(TargetBrowser), configRoot["TargetBrowsers"]);
+            _buildNumber = configRoot["BuildNumber"];
 
-            configBuilder.AddJsonFile("test-config.json", false, true);
-            configBuilder.AddEnvironmentVariables();
+            _remoteWebDriverConfig = RemoteWebDriverConfig.Hydrate(configRoot.GetSection("RemoteWebDriver"));
 
-            var configRoot = configBuilder.Build();
-
-            var config = new TestConfig
+            var assemblies = configRoot.GetSection("AssembliesToLoad");
+            foreach(var a in assemblies.GetChildren())
             {
-                _browser = (TargetBrowser)Enum.Parse(typeof(TargetBrowser), configRoot["TargetBrowsers"]),
-                _buildNumber = configRoot["BuildNumber"]
-            };
-
-            config._remoteWebDriverConfig = RemoteWebDriverConfig.Hydrate(configRoot.GetSection("RemoteWebDriver"));
-
-            return config;
-        });
+                _targetAssemblies.Add(a.Value);
+            }
+        }
 
 
         private TargetBrowser _browser;
         private RemoteWebDriverConfig _remoteWebDriverConfig;
         private string _buildNumber;
+        private IList<string> _targetAssemblies = new List<string>();
 
 
         /// <summary>
@@ -42,16 +45,14 @@ namespace OlsonDigital.TestAutomation.Xunit
         /// </summary>
         public TargetBrowser Browser => _browser;
 
-
         /// <summary>
         /// Configuration for the remote webdriver(s)
         /// </summary>
         public RemoteWebDriverConfig RemoteWebDriverConfig => _remoteWebDriverConfig;
 
-
         /// <summary>
-        /// Gets the current configuration
+        /// A list of Assemblies to Load Types from
         /// </summary>
-        public static TestConfig Instance => _singleton.Value;
+        public IList<string> TargetAssemblies => _targetAssemblies;
     }
 }

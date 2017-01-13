@@ -14,8 +14,6 @@ namespace OlsonDigital.TestAutomation.Samples
         public GoogleTests(SeleniumFixture fixture)
         {
             _fixture = fixture;
-
-            _fixture.BuildAndRegisterConstainer(new string[] { "OlsonDigital.TestAutomation.Samples" });
         }
 
         [Category("Sample Tests")]
@@ -31,11 +29,9 @@ namespace OlsonDigital.TestAutomation.Samples
                 var data = testData.Data;
 
                 var loadPage = scope.Resolve<LoadPage>();
-
                 loadPage.LoadPageAndValidateTitle(data.Url, data.ExpectedSearchPageTitle);
 
                 var performSearch = scope.Resolve<PerformSearch>();
-
                 performSearch.SearchAndValidateTitle(data.SearchText, data.SearchResultsPageTitle);
             });
         }

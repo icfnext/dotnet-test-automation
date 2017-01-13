@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Microsoft.Extensions.Configuration;
 
 namespace OlsonDigital.TestAutomation.Xunit
 {
+
+    /// <summary>
+    /// Configuration for Remote Web Drivers
+    /// </summary>
     public class RemoteWebDriverConfig
     {
+        private bool _enabled;
         private string _user;
         private string _password;
         private Uri _url;
 
         private IDictionary<TargetBrowser, Dictionary<string, string>> _capabilities = new Dictionary<TargetBrowser, Dictionary<string, string>>();
 
+
+        /// <summary>
+        /// Hyrdates the a new Remote WebDriver Config from the provided section
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
         public static RemoteWebDriverConfig Hydrate(IConfigurationSection section)
         {
             var config = new RemoteWebDriverConfig
@@ -24,6 +32,12 @@ namespace OlsonDigital.TestAutomation.Xunit
                 _password = section["Password"],
                 _url = section["Url"] != null ? new Uri(section["Url"]) : null
             };
+
+            bool enabled = false;
+            if ( bool.TryParse(section["Enabled"], out enabled) )
+            {
+                config._enabled = enabled;
+            }
 
             var drivers = section.GetSection("Capabilities");
             foreach (var driver in drivers.GetChildren())
@@ -43,6 +57,11 @@ namespace OlsonDigital.TestAutomation.Xunit
 
             return config;
         }
+
+        /// <summary>
+        /// Indicates if Remote Web Drivers are enabled.
+        /// </summary>
+        public bool Enabled => false;
 
 
         /// <summary>
