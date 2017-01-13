@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using OpenQA.Selenium;
 
-namespace OlsonDigital.TestAutomation.Extensions.Selenium
+namespace OlsonDigital.TestAutomation.Selenium
 {
     /// <summary>
     /// Extensions for the Selenium WebDriver

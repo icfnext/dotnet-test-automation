@@ -1,0 +1,32 @@
+﻿{
+  // A Build Number for this Test Run
+  "BuildNumber": "1.0.1.45",
+
+  // A list of Target Browsers.  Case sensative and comma seperated
+  "TargetBrowsers": "Chrome",
+
+  // A list of Target Systems.  Case sensative and comma seperated
+  "TargetSystems": "Ams",
+
+  // A set of Remote Web Driver settings
+  "RemoteWebDriver": {
+    "User": "joetoussaint1",
+    "Password": "p3wivYqJB5TaqB8UtdX8",
+    "Url": "http://hub-cloud.browserstack.com/wd/hub/",
+
+    // Browser Specific capabilities, Browser names need to match a 'TargetBrowser'
+    "Capabilities": {
+      "RemoteChrome": {
+        "os": "Windows",
+        "os_version": "10",
+        "browser_version": "55.0"
+      },
+
+      "RemoteInternetExplorer": {
+        "os": "Windows",
+        "os_version": "10",
+        "browser_version": "11.0"
+      }
+    }
+  }
+}
